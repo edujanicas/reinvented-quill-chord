@@ -1,0 +1,919 @@
+/* -------------------------
+ * Custom Fonts
+ * -------------------------*/
+@font-face {
+  font-family: Land Rover;
+  font-style: normal;
+  src: url('https://modules.jaguarlandrover.com/modules/jlr-fonts/0.8.0/AvenirNextW1G/AvenirNextW1G-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Land Rover;
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://modules.jaguarlandrover.com/modules/jlr-fonts/0.8.0/AvenirNextW1G/AvenirNextW1G-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Land Rover;
+  font-style: normal;
+  font-weight: bold;
+  src: url('https://modules.jaguarlandrover.com/modules/jlr-fonts/0.8.0/AvenirNextW1G/AvenirNextW1G-Medium.ttf') format('truetype');
+}
+
+
+/* -------------------------
+ * Sensible defaults
+ * -------------------------*/
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-height: 56px;
+  --main-max-width: 450px;
+  --summary-width: 366px;
+  --summary-margin: 54px;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 935px) {
+  :root {
+    --header-height: 56px;
+    --main-max-width: 450px;
+    --summary-width: 280px;
+    --summary-margin: 44px;
+  }
+}
+
+body,
+input,
+button {
+  font-family: 'Land Rover', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  transition: background .3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------
+ * Main
+ * -------------------------*/
+.Checkout {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: var(--header-height) 20px 60px;
+}
+
+.CheckoutMain {
+/*   opacity: 0; */
+/*   transition: opacity .8s ease; */
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.box {
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04), 0px 10px 24px rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+}
+
+.Heading {
+  margin: 40px 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  transition: color .2s ease;
+}
+
+@media only screen and (min-width: 740px) {
+  .Checkout {
+    max-width: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Main {
+    padding: 0 20px;
+    padding-bottom: 80px;
+  }
+
+  .container {
+    max-width: calc(
+      var(--main-max-width) + var(--summary-margin) + var(--summary-width)
+    );
+  }
+
+  .Main .container {
+    padding: var(--header-height)
+      calc(var(--summary-margin) + var(--summary-width)) 0 0;
+  }
+}
+
+
+/* -------------------------
+ * Header
+ * -------------------------*/
+.Header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: var(--header-height);
+  padding: 0 20px;
+  background: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03), 0px 1px 0px rgba(0, 0, 0, 0.04);
+  transition: background .3s ease;
+}
+
+.Header .container {
+  flex: 1;
+}
+
+.logo {
+  display: block;
+  width: 64px;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  transition: background .3s ease;
+}
+
+@media only screen and (max-width: 740px) {
+  .Header .container {
+    max-width: 500px;
+  }
+}
+
+
+/* -------------------------
+ * Breadcrumb
+ * -------------------------*/
+.Breadcrumb {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 42px;
+}
+
+.Breadcrumb-link {
+  font-weight: bold;
+  color: #000;
+  opacity: 0.4;
+  transition: color .2s ease;
+}
+
+.Breadcrumb svg {
+  transition: fill .2s ease;
+}
+
+.Breadcrumb-separator {
+  margin: 0 12px;
+}
+
+.Breadcrumb-link--active {
+  opacity: 1;
+}
+
+
+/* -------------------------
+ * Summary
+ * -------------------------*/
+
+
+.OrderSummary {
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 0px;
+  transition: all .3s ease;
+}
+
+.Summary-row {
+  padding-top: 6px;
+}
+
+.Summary-row:first-child {
+  padding-top: 0;
+}
+
+.error-message {
+  display: none;
+  margin-top: 14px;
+  color: #df1b41;
+}
+
+.error-message.is-visible {
+  display: block;
+}
+
+.Button {
+  display: block;
+  width: 100%;
+  margin: 26px 0 0;
+  background:
+    #000000;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.04),
+    0px 3px 6px rgba(18, 42, 66, 0.04);
+  font-family: 'Land Rover';
+  font-size: 16px;
+  line-height: 48px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background 0.2s ease, padding 0.2s ease, color .2s ease;
+}
+
+.Button:focus {
+  outline: 0;
+}
+
+.Button:hover {
+  background:
+    #000000;
+}
+
+.Button-loader {
+  display: inline-block;
+  position: relative;
+}
+
+.Button-loader::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: -25px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-right-color: transparent;
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity 0.1s ease, border 0.1s ease;
+  animation: rotate 0.6s linear infinite;
+  mask-image: linear-gradient(to bottom right, #000, rgba(0, 0, 0, 0));
+}
+
+.Button.is-loading .Button-loader::after {
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.Button.is-loading {
+  padding-right: 42px;
+}
+
+.Summary-total {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* @media only screen and (min-width: 740px) {
+  .Summary {
+    position: fixed;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .Summary .container {
+    position: relative;
+    max-width: calc(
+      var(--main-max-width) + var(--summary-margin) + var(--summary-width) +
+        20px
+    );
+  }
+
+  .Summary-content {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: var(--summary-width);
+  }
+} */
+
+/* -------------------------
+ * Success
+ * -------------------------*/
+.Success {
+  --header-height: 56px;
+  --main-max-width: 450px;
+  --summary-width: 366px;
+  --summary-margin: 54px;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: var(--header-height) 20px 60px;
+  text-align: center;
+  color: rgba(0,0,0,.5);
+  font-size: 15px;
+}
+
+.Success-icon {
+  margin-top: 48px;
+}
+
+.Success-svgStroke {
+  stroke: #007aff;
+}
+
+.Success-title {
+  margin-top: 16px;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.Success-total {
+  margin: 10px 0 26px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+}
+
+.Success-note {
+  max-width: 252px;
+  margin: 0 auto 16px;
+  font-size: 14px;
+}
+
+.Success-link {
+  color: #007aff;
+  text-decoration: none;
+}
+
+.Success-link:hover {
+  text-decoration: underline;
+}
+
+
+/* -------------------------
+ * Color Scheme
+ * -------------------------*/
+.ColorScheme {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  overflow: hidden;
+  display: none;
+  width: 194px;
+  height: 42px;
+  padding-left: 26px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+  font-size: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.ColorScheme-icon,
+.ColorScheme-labelWrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.ColorScheme-icon {
+  left: -20px;
+}
+
+.ColorScheme-labelWrapper {
+  width: 124px;
+}
+
+.ColorScheme-label {
+  width: 100%;
+  float: left;
+  margin-right: -100%;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d2e39;
+  white-space: nowrap;
+  transition: opacity .3s ease;
+}
+
+.ColorScheme-label--dark {
+  color: #e8c18e;
+}
+
+.dark-mode .ColorScheme-label--light,
+.ColorScheme-label--dark {
+  opacity: 0;
+}
+
+.ColorScheme-label--light,
+.dark-mode .ColorScheme-label--dark {
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+
+.Sun-sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  background: #e8c18e;
+  border-radius: 100%;
+  transition: transform .8s cubic-bezier(0.19, 1, 0.22, 1) 0.3s, opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1) .3s;
+}
+
+.dark-mode .Sun-sun {
+  opacity: 0;
+  transform: translate(0, 4px);
+  transition: transform .8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1) .2s;
+}
+
+.Sun-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: #e8c18e;
+  border-radius: 100%;
+  transition: transform .8s cubic-bezier(0.19, 1, 0.22, 1) .55s, opacity .8s cubic-bezier(0.19, 1, 0.22, 1) .55s;
+  will-change: transform;
+}
+
+.Sun-ray:nth-child(1) {
+  transform: translate(-12px, 0);
+}
+
+.Sun-ray:nth-child(2) {
+  transform: translate(-8px, 8px);
+}
+
+.Sun-ray:nth-child(3) {
+  transform: translate(0, 12px);
+}
+
+.Sun-ray:nth-child(4) {
+  transform: translate(8px, 8px);
+}
+
+.Sun-ray:nth-child(5) {
+  transform: translate(12px, 0);
+}
+
+.Sun-ray:nth-child(6) {
+  transform: translate(8px, -8px);
+}
+
+.Sun-ray:nth-child(7) {
+  transform: translate(0, -12px);
+}
+
+.Sun-ray:nth-child(8) {
+  transform: translate(-8px, -8px);
+}
+
+.dark-mode .Sun-ray {
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: transform .8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.15s cubic-bezier(0.19, 1, 0.22, 1) .15s;
+}
+
+/* Solves weird background clipping vs background on .ColorScheme */
+.Day {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: #fff;
+  border-radius: 40px;
+}
+
+.Night {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background: #2d2e39;
+  border-radius: 40px;
+  transition: opacity .45s ease .25s;
+  will-change: transform;
+}
+
+.dark-mode .Night {
+  opacity: 1;
+  transition-delay: 0s;
+}
+  
+.Moon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity ease .4s;
+}
+
+.dark-mode .Moon {
+  opacity: 1;
+  transition-delay: .45s;
+}
+
+.Moon-moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  background: #fff;
+  border-radius: 100%;
+}
+
+.Moon-shadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  background: #2d2e39;
+  transform: translate(0, 0);
+  border-radius: 100%;
+  transition: transform .8s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+.dark-mode .Moon-shadow {
+  transform: translate(0, -9px);
+  transition-delay: .45s;
+}
+
+
+@media only screen and (min-width: 740px) {
+  .ColorScheme {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+}
+
+/* -------------------------
+ * Instructions
+ * -------------------------*/
+.Instructions {
+  margin-top: 20px;
+  padding: 28px 32px;
+  background: #f9f4ee;
+  font-size: 15px;
+  color: #585653;
+  line-height: 1.4;
+  border-radius: 6px;
+  transition: background .3s ease;
+}
+
+.Instructions h4 {
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  transition: color .2s ease;
+}
+
+.Instructions-num {
+  margin-right: 8px;
+  opacity: .9;
+}
+
+.Instructions-text {
+  margin-bottom: 12px;
+  color: #6f6e6c;
+  transition: color .2s ease;
+}
+
+.Instructions a {
+  color: #585653;
+  transition: color .15s ease;
+}
+
+.Instructions a:hover {
+  color: #2d2c2b;
+}
+
+.Instructions-cta {
+  margin-top: 20px;
+}
+
+.external-link {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.external-link svg {
+  will-change: transform;
+  transition: transform .4s cubic-bezier(0.19, 1, 0.22, 1), fill .2s ease;
+}
+
+.external-link:hover svg {
+   transform: translate(2px, 0); 
+}
+
+.__PrivateStripeElement::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  display: block;
+  box-shadow: 0 0 4px #e0b36f, inset 0 0 2px #e0b36f;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow .3s ease;
+}
+
+.__PrivateStripeElement::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -34px;
+  right: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c38f3f;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow .3s ease;
+}
+
+.reveal-elements .__PrivateStripeElement::before,
+.reveal-elements .__PrivateStripeElement::after {
+  opacity: 1; 
+}
+
+#authentication-element .__PrivateStripeElement::after {
+  content: 'Link Authentication Element';
+}
+
+#shipping-element .__PrivateStripeElement::after {
+  content: 'Shipping Address Element';
+}
+
+#payment-element .__PrivateStripeElement::after {
+  content: 'Payment Element';
+}
+
+/* -------------------------
+ * Dark Mode
+ * -------------------------*/
+.dark-mode body {
+  background: #1a1b25;
+  color: #fff;
+}
+
+.dark-mode .Header {
+  background: #2d2e39;
+}
+
+.dark-mode .logo {
+  background: #42434d;
+}
+
+.dark-mode .OrderSummary {
+  background: #2d2e39;
+  box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.1), 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #d5d5d7;
+  border-radius: 12px
+}
+
+.dark-mode .Summary-total {
+  border-top-color: #42434d;
+  color: #fff;
+}
+
+.dark-mode .Breadcrumb-link {
+  color: #fff;
+}
+
+.dark-mode .Breadcrumb svg {
+  fill: #fff;
+}
+
+.dark-mode .Button {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #85d996;
+  color: #2a2f45;
+}
+
+.dark-mode .Button:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #8eeca1;
+}
+
+.dark-mode .Button-loader::after {
+  border: 2px solid #2a2f45;
+  border-right-color: transparent;
+}
+
+.dark-mode .error-message {
+  color: #fe87a1;
+}
+
+.dark-mode .Success {
+  color: #a3acba;
+}
+
+.dark-mode .Success-svgStroke {
+  stroke: #85d996;
+}
+
+.dark-mode .Success-title,
+.dark-mode .Success-total {
+  color: #fff;
+}
+
+.dark-mode .Success-link {
+  color: #85d996;
+}
+
+.dark-mode .Instructions {
+  background: #29292d;
+  color: #dadce2;
+}
+
+.dark-mode .Instructions-text {
+  color: #b9babf;
+}
+
+.dark-mode .Instructions a {
+  color: #dadce2;
+}
+
+.dark-mode .Instructions a:hover {
+  color: #fff;
+}
+
+.dark-mode .__PrivateStripeElement::before {
+  box-shadow: 0 0 4px #ffe480, inset 0 0 2px #ffe480;
+}
+
+.dark-mode .__PrivateStripeElement::after {
+  color: #ffe480;
+}
+
+.rr-logo {
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+  .image-wrapper {
+    width: 100vw;
+    
+  }
+  .image-wrapper > img {
+    position: relative;
+    width: 100vw;
+    top: unset;
+    
+  }
+  .Summary {
+    width: 100%;
+  }
+}
+
+.Summary {
+    width: 40vw;
+    margin: 40px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.image-wrapper {
+  width: 100%;
+  display: block;
+  background-image: linear-gradient(#aaafb3, #fff8f8);
+  margin: 0;
+}
+
+.canvas-image > img {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 400px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin: 0;
+}
+
+div,
+input {
+  margin: 8px;
+}
+
+/* Radio element, when checked */
+input[type="radio"]:checked {
+  filter: grayscale(1);
+}
+
+.billing-address {
+  font-family: Land Rover, Helvetica, sans-serif;
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-top: 20px;
+  transition: all .3s ease;
+}
+
+.billing-address input {
+  margin-top: 1.5em;
+}
+
+.billing-address label {
+  font-weight: bold;
+}
+
+.billing-address label p {
+  font-weight: normal;
+  font-size: 80%;
+  text-indent: 2.5em;
+}
